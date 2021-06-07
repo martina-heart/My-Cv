@@ -26,17 +26,37 @@
     <!-- Add your site or application content here -->
 
     <div class="navbar">
-      <a href="#about">About</a>
-      <a href="#myCV">My CV</a>
+      <button class="tablinks" onclick="openPage(event, 'About')">About</button>
+
+      <button class="tablinks" onclick="openPage(event, 'My-CV')">My Cv</button>
       <div class="dropdown">
         <button class="dropbtn">
           Projects <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content">
-          <a href="#project-1">Project-1</a>
-          <a href="#project-2">Project-2</a>
+          <button class="tablinks" onclick="openPage(event, 'Final-Project')">
+            Final-Project
+          </button>
+          <button class="tablinks" onclick="openPage(event, 'To-Do-React')">
+            To-Do-React
+          </button>
         </div>
       </div>
+    </div>
+
+    <div id="About" class="tabcontent">
+      <h3 style="color: yellow">Lorem ipsum</h3>
+    </div>
+    <div id="My-CV" class="tabcontent">
+      <h3>Lorem ipsum</h3>
+    </div>
+
+    <div id="Final-Project" class="tabcontent">
+      <h3 style="color: red">Lorem ipsum</h3>
+    </div>
+
+    <div id="To-Do-React" class="tabcontent">
+      <h3 style="color: royalblue">Lorem ipsum</h3>
     </div>
 
     <!-- Hello World button-->
@@ -45,9 +65,26 @@
         <button class="button">Hello World</button>
       </a>
     </div>
+
     <script src="js/vendor/modernizr-3.11.2.min.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
+
+    <script>
+      function openPage(evt, newPage) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(newPage).style.display = "block";
+        evt.currentTarget.className += " active";
+      }
+    </script>
 
     <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
     <script>
